@@ -5,7 +5,6 @@ type Url = string;
 type Selector = string;
 
 export const urlToSelectorAvailableMap: Record<Url, Selector> = {
-  // TODO working headless only
   "https://www.euronics.de/computer-und-buero/buerobedarf/buerogeraete/ps-53-cc-aktenvernichter-schwarz-4061856244839":
     "#buybox--button",
   "https://www.amazon.de/-/en/UniversalHumid-Selection-Languages-Guaranteed-Cardboard/dp/B08FG4MCDZ?ref_=Oct_DLandingS_D_575f483f_63&smid=A3JWKAKR8XB7XF":
@@ -16,8 +15,6 @@ export const urlToSelectorAvailableMap: Record<Url, Selector> = {
     ".mu-product-cta__add-to-cart",
   "https://www.medimax.de/p/1332131/galaxy-a52-a525f-128gb":
     ".product-cart-add-to-cart-button",
-  "https://www.mytoys.de/frech-verlag-zauberpapier-malbuch-im-feenwald-10967327.html":
-    ".prod-info .btn-add-to-cart",
 };
 
 export const urlToSelectorPS5Map: Record<Url, Selector> = {
@@ -42,8 +39,4 @@ export const urlToSelectorPS5Map: Record<Url, Selector> = {
     ".product-cart-add-to-cart-button",
   "https://www.medimax.de/p/1315336/play-station-5-825gb-ssd":
     ".product-cart-add-to-cart-button",
-  "https://www.mytoys.de/sony-ps5-playstation-5-konsole-inkl-laufwerk-17235694.html":
-    ".prod-info .btn-add-to-cart",
-  "https://www.mytoys.de/sony-ps5-playstation-5-konsole-digital-version-17235665.html":
-    ".prod-info .btn-add-to-cart",
 };
