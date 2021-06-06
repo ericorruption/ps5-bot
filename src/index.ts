@@ -1,5 +1,8 @@
 import puppeteer, { Page } from "puppeteer";
 import { urlToSelectorPS5Map } from "./links";
+import sendgridMailer from "@sendgrid/mail";
+
+sendgridMailer.setApiKey(process.env.SENDGRID_KEY!);
 
 const SECONDS = 1000;
 
@@ -22,9 +25,15 @@ const loop = async (page: Page) => {
         const disabledValue = await buyButton.getProperty("disabled");
         const isDisabled = await disabledValue?.jsonValue();
         if (!isDisabled) {
-          console.log(
-            `[${new Date().toLocaleTimeString()}] PS5 available at ${url}.`
-          );
+          const message = `[${new Date().toLocaleTimeString()}] PS5 available at ${url}.`;
+          console.log(message);
+          await sendgridMailer.send({
+            to: process.env.EMAIL_RECIPIENTS?.split(","),
+            from: process.env.EMAIL_SENDER!,
+            subject: "[PS5-BOT] PS5 AVAILABLE!",
+            text: message,
+            html: message,
+          });
         }
       }
     } catch (e) {
